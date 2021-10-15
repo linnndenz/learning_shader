@@ -1,11 +1,11 @@
-Shader "Unlit/BaseVFShader"
+Shader "Learning/BaseVFShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color("Color",Color)=(1,1,1,1)
 
-        //»ù´¡¹âÕÕ
+        //åŸºç¡€å…‰ç…§
         _Ambient("Ambient Amount",Range(0,1))=0.8
         _SpecularColor("Specular Color",Color)=(1,1,1,1)
         _Gloss("Gloss(Specular) Amount",Range(0,200))=15
@@ -15,13 +15,13 @@ Shader "Unlit/BaseVFShader"
     SubShader
     {
         //Tags { "RenderType"="Opaque" }
-        Tags{"RenderType"="Transparent" "Queue"="Transparent"}  //Í¸Ã÷ÉèÖÃ
+        Tags{"RenderType"="Transparent" "Queue"="Transparent"}  //é€æ˜è®¾ç½®
 
         LOD 100
 
         Pass
         {
-            Blend SrcAlpha OneMinusSrcAlpha                     //Í¸Ã÷ÉèÖÃ
+            Blend SrcAlpha OneMinusSrcAlpha                     //é€æ˜è®¾ç½®
 
             CGPROGRAM
             #pragma vertex vert
@@ -55,7 +55,7 @@ Shader "Unlit/BaseVFShader"
             float4 _MainTex_ST;
             fixed4 _Color;
 
-            //»ù´¡¹âÕÕ
+            //åŸºç¡€å…‰ç…§
             float _Ambient;
             fixed4 _SpecularColor;
             float _Gloss;
@@ -69,7 +69,7 @@ Shader "Unlit/BaseVFShader"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
-                //Ô¤ÖÆ¹âÕÕ
+                //é¢„åˆ¶å…‰ç…§
                     //half-lambert
                 float3 worldNormal=UnityObjectToWorldNormal(v.normal);
                 float3 lightDir=normalize(_WorldSpaceLightPos0);
@@ -90,10 +90,10 @@ Shader "Unlit/BaseVFShader"
                 
                 //...
 
-                //Ô¤ÖÆ¹âÕÕ
-                fixed3 baseColor=i.diffuse.rgb;                     //Âş·´Éä
-                baseColor+=UNITY_LIGHTMODEL_AMBIENT.rgb*_Ambient;   //»·¾³¹â
-                baseColor+=i.specular;                              //¸ß¹â
+                //é¢„åˆ¶å…‰ç…§
+                fixed3 baseColor=i.diffuse.rgb;                     //æ¼«åå°„
+                baseColor+=UNITY_LIGHTMODEL_AMBIENT.rgb*_Ambient;   //ç¯å¢ƒå…‰
+                baseColor+=i.specular;                              //é«˜å…‰
                 baseColor*=_Color.rgb;
 
                 return col*fixed4(baseColor,_Color.a);
