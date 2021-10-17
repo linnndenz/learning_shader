@@ -5,3 +5,6 @@
 ### 2、漫反射、高光与透明+法线贴图版[BaseVFShader_Bump](https://github.com/lizzzeeeden/learning_shader/blob/main/BaseVFShader_Bump.shader)
 - 为了加法线贴图重写了一遍基础光照，把逐顶点改成了逐像素，同时简化了代码
 - 好像又多明白了点……版本迭代，资料不全……学shader好难……
+### 3、水晶[crystal](https://github.com/lizzzeeeden/learning_shader/tree/main/Crystal)
+- 在捣鼓爆炸的时候看见缩略图很像水晶，于是改了爆炸效果做成晶状体
+- 爆炸效果仍不如意……
