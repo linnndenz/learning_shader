@@ -9,7 +9,7 @@ Shader "Learning/Crystal"
 
         //基础光照
         _Ambient("Ambient Amount",Range(0,2.5))=0.8
-        _SpecularColor("Specular Color",Color)=(1,1,1,1)
+        //_SpecularColor("Specular Color",Color)=(1,1,1,1)
         //_Gloss("Gloss(Specular) Amount",Range(0,80))=15
 
         //...
@@ -58,7 +58,7 @@ Shader "Learning/Crystal"
                 //光照
                 float3 normal:NORMAL;
                 float3 lightDir:TEXCOORD1;
-                float3 viewDir:TEXCOORD2;
+                //float3 viewDir:TEXCOORD2;
 
                 //...
                 float4 crystalColor:TEXCOORD3;
@@ -91,7 +91,7 @@ Shader "Learning/Crystal"
 
                 //基础光照参数（模型空间）
                 o.lightDir=normalize(ObjSpaceLightDir(v.vertex));
-                o.viewDir=normalize(ObjSpaceViewDir(v.vertex));
+                //o.viewDir=normalize(ObjSpaceViewDir(v.vertex));
                 o.normal=normalize(v.normal);
 
                 //不规则膨胀
@@ -116,7 +116,6 @@ Shader "Learning/Crystal"
                 i.normal=normalize(i.normal);
                 fixed3 diffuse =_LightColor0*(dot(i.normal,i.lightDir)*0.5+0.5);                           //漫反射
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb*_Ambient;                                    //环境光
-                fixed3 halfDir = normalize(i.lightDir+i.viewDir);
 
                 col*=fixed4(diffuse+ambient,i.alpha);
 
