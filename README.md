@@ -8,3 +8,5 @@
 ### 3、[水晶](https://github.com/lizzzeeeden/learning_shader/tree/main/Crystal)
 - 在捣鼓爆炸的时候看见缩略图很像水晶，于是改了爆炸效果做成晶状体
 - 爆炸效果仍不如意……
+### 4、[模糊、毛玻璃](https://github.com/lizzzeeeden/learning_shader/tree/main/Blur)
+- 做的时候效果一直不如意，写作业说明的时候参数一拖竟然成了，于是再修修改改，结果好像也还行
